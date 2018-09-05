@@ -65,11 +65,11 @@ All scripts accept a common config file as argument which contains the details r
 Additionally, proxy infomation can also be provided when a http/https proxy server is required to connect to the API platform Cloud Service
 
 > `{`
-> `    "server": "https://host/apiplatform" ,`
-> `    "auth": ["weblogic"],`
-> `    "proxy": {`
-> `        "http": "proxy.xxx.yyy.com:80", `
-> `        "https": "proxy.xxx.yyy.com:80"`
+> `    "server": "https://host/apiplatform" ,`  
+> `    "auth": ["weblogic"],`  
+> `    "proxy": {`  
+> `        "http": "proxy.xxx.yyy.com:80", `   
+> `        "https": "proxy.xxx.yyy.com:80"`   
 > `    }`
 > `}`
 
@@ -93,7 +93,7 @@ The metadata in json format will be persisted within the destination directory s
 
 > `Usage:`
 > `    python exportallapis.py --help`
-> `    usage: exportallapis.py [-h] [-cf CONFIGFILE] [--destdir DESTDIR]`
+> `    exportallapis.py [-h] [-cf CONFIGFILE] [--destdir DESTDIR]`
 >
 > `    This program exports all APIs and its associated artifacts from APICS and` `persist them on the file system`
 > `    optional arguments:`
@@ -114,7 +114,7 @@ The metadata in json format will be persisted within the destination directory s
 - Application registrations associated with every Application being exported
 
 > `usage:`
-> `usage: exportallapplications.py [-h] [-cf CONFIGFILE] [--destdir DESTDIR]`
+> `exportallapplications.py [-h] [-cf CONFIGFILE] [--destdir DESTDIR]`
 > `This program exports all Applications from APICS and persist them on the file system`
 >
 > `optional arguments:`
@@ -135,7 +135,7 @@ The metadata in json format will be persisted within the destination directory s
 - Plan Entitlements 
 - Plan Subscriptions
 
-> `usage:usage: exportallplans.py [-h] [-cf CONFIGFILE] [--destdir DESTDIR]This program exports all plans' metadata from APICS and persist them on the file system`
+> `usage: exportallplans.py [-h] [-cf CONFIGFILE] [--destdir DESTDIR]This program exports all plans' metadata from APICS and persist them on the file system`
 >
 > `optional arguments:`
 > `  -h, --help        show this help message and exit`
@@ -151,14 +151,14 @@ This script scans through all the API metadata jsons in a specified directory an
 Note that API grants and contracts are not used when importing. The new APIs will be created on target server with default grants and no contracts.
 
 > `Usage`
-> `usage: importapis_fromdir.py [-h] [-cf CONFIGFILE] --dirpath DIRPATH`
+> `importapis_fromdir.py [-h] [-cf CONFIGFILE] --dirpath DIRPATH`
 >
 > `Import APIs into APICS by reading all json files in specified dirpath;`
 >
 > `optional arguments:`
 > `  -h, --help       show this help message and exit`
-> `  -cf CONFIGFILE, --configfile CONFIGFILE config file specifying server, auth, proxy and other details in json format;`
-> `  --dirpath DIRPATH     directory path; All json files from this directory will be imported`
+> `  -cf CONFIGFILE, --configfile CONFIGFILE config file specifying server, auth, proxy and other details in json format;`   
+> `  --dirpath DIRPATH     directory path; All json files from this directory will be imported`   
 
 If any of the APIs have references to gateways or credentials in their policies, then such policies will be in draft mode after import. These should be completed prior to publishing these APIs on the target APIPCS server.
 
@@ -168,12 +168,12 @@ If any of the APIs have references to gateways or credentials in their policies,
 
 This script scans through all the Application metadata json files in a specified directory and creates them on the target API Platform server. Note that Application registrations will not be used when importing. The new Applications will be created on target server with no registrations.
 
-> `Usageusage: importapplications_fromdir.py [-h] [-cf CONFIGFILE] --dirpath DIRPATHImport Applications into APICS by reading all json files in specified dirpath;`
->
-> optional arguments:
-> -h, –help            show this help message and exit
-> -cf CONFIGFILE, –configfile CONFIGFILE config file specifying server, auth, proxy and other details in json format;
-> –dirpath DIRPATH     directory path; All json files from this directory will be imported
+> `Usage: importapplications_fromdir.py [-h] [-cf CONFIGFILE] --dirpath DIRPATHImport Applications into APICS by reading all json files in specified dirpath;`   
+>   
+> `optional arguments:   
+> `-h, –help            show this help message and exit`   
+> `-cf CONFIGFILE, –configfile CONFIGFILE config file specifying server, auth, proxy and other details in json format;`   
+> `–dirpath DIRPATH     directory path; All json files from this directory will be imported`   
 
  
 ### <a name="importing-plans-into-an-api-platform-importplans_fromdirpy"></a> Importing Plans into an API Platform (importplans_fromdir.py)
@@ -186,15 +186,15 @@ The script assumes that APIs and Apps are already imported prior to importing th
 
 Note that Plan grants are not used when importing. The new Plans will be created on target server with default grants.
 
-> `Usage`
-> `usage: importplans_fromdir.py [-h] [-cf CONFIGFILE] --dirpath DIRPATH`
->
-> `Import Plans into APICS by reading all json files in specified dirpath;`
->
-> `optional arguments:`
-> `  -h, --help       show this help message and exit`
-> `  -cf CONFIGFILE, --configfile CONFIGFILE config file specifying server, auth, proxy and other details in json format;`
-> `  --dirpath DIRPATH     directory path; All json files from this directory will be imported`
+> `Usage`   
+> `importplans_fromdir.py [-h] [-cf CONFIGFILE] --dirpath DIRPATH`   
+>   
+> `Import Plans into APICS by reading all json files in specified dirpath;`   
+>   
+> `optional arguments:`   
+> `  -h, --help       show this help message and exit`   
+> `  -cf CONFIGFILE, --configfile CONFIGFILE config file specifying server, auth, proxy and other details in json format;`   
+> `  --dirpath DIRPATH     directory path; All json files from this directory will be imported`   
 
 If any of the APIs have references to gateways or credentials in their policies, then such policies will be in draft mode after import. These should be completed prior to publishing these APIs on the target APIPCS server.
 
@@ -225,19 +225,19 @@ python repl.py [-cf CONFIGFILE]
 The REPL also takes the same common config file as argument as before which contains the details required to connect to and authenticate against the API Platform Cloud service. It defaults to apipcs_config.json when not provided.
 
 > `{`
-> `    "server": "https://host:port/apiplatform" ,`
-> `    "auth": ["weblogic"],`
-> `    "proxy": {`
-> `        "http": "proxy.xxx.yyy.com:80",`
-> `        "https": "proxy.xxx.yyy.com:80"`
+> `    "server": "https://host:port/apiplatform" ,`   
+> `    "auth": ["weblogic"],`   
+> `    "proxy": {`   
+> `        "http": "proxy.xxx.yyy.com:80",`   
+> `        "https": "proxy.xxx.yyy.com:80"`   
 > `    }`
 > `}`
 
-Starting the REPL
+Starting the REPL   
 
-> `bash-4.1$ python3 repl.py -cf apipcs_config.json`
-> `done initing repl`
-> `APIPCS: >`
+> `bash-4.1$ python repl.py -cf apipcs_config.json`   
+> `done initing repl`   
+> `APIPCS: >`   
 
 The following commands are available from the REPL prompt. All commands connect to and execute operations on the API Platform CS server specified in the config json file.
 
@@ -251,35 +251,27 @@ The following commands are available from the REPL prompt. All commands connect 
 - importapps_fromdir [–dirpath <dirpath>]
 - importplans_fromdir [–dirpath <dirpath>]
 
-The commands are self explanatory and they perform the same functions as their script counterparts.
+The commands are self explanatory and they perform the same functions as their script counterparts.   
 
-Here is a sample REPL session extract for reference
+Here is a sample REPL session extract for reference   
 
-> `>python3 repl.py -cf apipcs_exportfrom.json`
-> `done initing repl`
-> `APIPCS: >`
-> `APIPCS: > help`
-> `Documented commands (type help ):`
-> `========================================`
-> `help`
+> `>python repl.py -cf apipcs_exportfrom.json`      
+> `done initing repl`   
+> `APIPCS: >`   
+> `APIPCS: > help`   
+> `Documented commands (type help ):`   
+> `========================================`   
+> `help`   
 >
-> `Undocumented commands:`
-> `======================`
-> `exit listapis listplans`
-> `exportallapis importapis_fromdir listapps `
-> `exportallapps importapps_fromdir listgateways`
->
-> `APIPCS: >`
-> `APIPCS: >`
-> `APIPCS: >`
-> `APIPCS: > listapis`
-> `Reading Config from - apipcs_exportfrom.json`
-> `Using https://10.252.158.26/apiplatform ;{'https': 'proxy.xxx.yyy.com:80', 'http': 'proxy.xxx.yyy.com:80'} ;None`
->
-> `id 378 links [{'href': 'https://10.252.158.26:443/apiplatform/management/v1/apis/378', 'method': 'GET', 'templated': 'true', 'rel': 'canonical'}]`
-> `id 381 links [{'href': 'https://10.252.158.26:443/apiplatform/management/v1/apis/381', 'method': 'GET', 'templated': 'true', 'rel': 'canonical'}]`
-> `id 794 links [{'href': 'https://10.252.158.26:443/apiplatform/management/v1/apis/794', 'method': 'GET', 'templated': 'true', 'rel': 'canonical'}]`
-> `***Found 3 APIs defined on the apipcs server`
+> `APIPCS: >`   
+> `APIPCS: >`   
+> `APIPCS: >`   
+> `APIPCS: > listapis`   
+> `Reading Config from - apipcs_exportfrom.json`   
+> `['331', 'PublicAPI', 'ALPHA', 'weblogic', '2018-04-19T09:53:48+0000']`   
+> `['333', 'APIWithAPlan', 'ALPHA', 'weblogic', '2018-04-19T09:53:50+0000']`   
+> `['334', 'UserAPI', 'ALPHA', 'weblogic', '2018-04-19T09:53:52+0000']`   
+> `***Found 3 APIs defined on the apipcs server`   
 
  
 
@@ -295,6 +287,4 @@ All script files and the REPL sessions write to log files within the apip-rest-p
 
 Increasing the log level to debug will write more diagnostic information and raw REST responses to the console and the log files.
 
-–Shreeni
 
-**Disclaimer: **These scripts are provided “AS IS” and without any official support from Oracle. Their use needs to be performed using details from the comments section and/or readme file (if one is included). Any bugs encountered, feedback, and/or enhancement requests are welcome. No liability for the contents of these scripts can be accepted. Use the concepts, examples, and information at your own risk. However, great care has been taken to ensure that all technical information is accurate and as useful as possible.This is an evolving set of python scripts, it is not a good example of “pythonic” code. It is expected that anyone using this would customize and extend to their needs.
