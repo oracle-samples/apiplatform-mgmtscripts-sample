@@ -16,13 +16,13 @@
          * [A note about grants](#a-note-about-grants)
          * [Logs](#logs)
 
-##<a name="introduction"></a> Introduction
+## <a name="introduction"></a> Introduction
 
 This blog introduces a few useful Python scripts written to repeatedly perform common administrative tasks and development operations on an API Platform Cloud Service instance.
 
 The scripts are written in Python and can be executed on all Python 3.6+ supported platforms
 
-###<a name="introduction"></a> Why
+### <a name="why"></a> Why
 
 These scripts are written keeping in mind a few real life use cases, such as –
 
@@ -31,7 +31,7 @@ These scripts are written keeping in mind a few real life use cases, such as –
 
 The scripts require familiarity with API Platform Cloud Service. Knowledge of Python programming language is not essential to execute the scripts and the interactive REPL, but will come in handy to customize or extend the functionality of the scripts to suite any specific needs.
 
-##<a name="prerequisites"></a> Prerequisites
+## <a name="prerequisites"></a> Prerequisites
 
 The scripts require Python version 3.6+ and ‘requests’ module installed.
 
@@ -77,11 +77,11 @@ Provide only the username for authentication. The scripts will prompt for a pass
 
 >`Password for APIPCS user- weblogic:`
 
-##<a name="common-administrative-operations"></a> Common Administrative Operations:
+## <a name="common-administrative-operations"></a> Common Administrative Operations:
 
 ### 
 
-###<a name="exporting-all-apis-from-an-api-platform-exportallapispy"></a> Exporting all APIs from an API Platform (exportallapis.py)
+### <a name="exporting-all-apis-from-an-api-platform-exportallapispy"></a> Exporting all APIs from an API Platform (exportallapis.py)
 
 This script will export the metadata of all APIs defined in API platform Cloud Service.
 
@@ -105,7 +105,7 @@ The metadata in json format will be persisted within the destination directory s
 
 ### 
 
-###<a name="exporting-all-applications-from-an-api-platform-exportallapplicationspy"></a> Exporting all Applications from an API Platform (exportallapplications.py)
+### <a name="exporting-all-applications-from-an-api-platform-exportallapplicationspy"></a> Exporting all Applications from an API Platform (exportallapplications.py)
 
 This script will export the metadata of all Applications created on API platform Cloud Service.
 
@@ -125,7 +125,7 @@ The metadata in json format will be persisted within the destination directory s
 
  
 
-###<a name="exporting-all-plans-from-an-api-platform-exportallplanspy"></a> Exporting all Plans from an API Platform (exportallplans.py)
+### <a name="exporting-all-plans-from-an-api-platform-exportallplanspy"></a> Exporting all Plans from an API Platform (exportallplans.py)
 
 This script will export the metadata of all Plans created on API platform Cloud Service.
 
@@ -144,7 +144,7 @@ The metadata in json format will be persisted within the destination directory s
 
  
 
-###<a name="importing-apis-into-an-api-platform-importapis_fromdirpy"></a> Importing APIs into an API Platform (importapis_fromdir.py)
+### <a name="importing-apis-into-an-api-platform-importapis_fromdirpy"></a> Importing APIs into an API Platform (importapis_fromdir.py)
 
 This script scans through all the API metadata jsons in a specified directory and creates them on the target API Platform server. The script also reads any resources referenced, like files used to specify the Overview and Documentation content from the same directory and includes their content when creating the API on the target API Platform server
 
@@ -164,7 +164,7 @@ If any of the APIs have references to gateways or credentials in their policies,
 
  
 
-###<a name="importing-applications-into-an-api-platform-importapplications_fromdirpy"></a> Importing Applications into an API Platform (importapplications_fromdir.py)
+### <a name="importing-applications-into-an-api-platform-importapplications_fromdirpy"></a> Importing Applications into an API Platform (importapplications_fromdir.py)
 
 This script scans through all the Application metadata json files in a specified directory and creates them on the target API Platform server. Note that Application registrations will not be used when importing. The new Applications will be created on target server with no registrations.
 
@@ -176,7 +176,7 @@ This script scans through all the Application metadata json files in a specified
 > –dirpath DIRPATH     directory path; All json files from this directory will be imported
 
  
-###<a name="importing-plans-into-an-api-platform-importplans_fromdirpy"></a> Importing Plans into an API Platform (importplans_fromdir.py)
+### <a name="importing-plans-into-an-api-platform-importplans_fromdirpy"></a> Importing Plans into an API Platform (importplans_fromdir.py)
 
 This script scans through all the plan jsons in the specified directory and creates them on the target API Platform server. The script also recreates the entitlements and subscriptions associated with the plans. For this reason the order of importing artifacts is important.   
 **Note**: Ensure that artifacts are imported in the following order   
@@ -199,7 +199,7 @@ Note that Plan grants are not used when importing. The new Plans will be created
 If any of the APIs have references to gateways or credentials in their policies, then such policies will be in draft mode after import. These should be completed prior to publishing these APIs on the target APIPCS server.
 
 
-###<a name="other-utility-commands"></a> Other Utility commands
+### <a name="other-utility-commands"></a> Other Utility commands
 
 The script bundle comes with few other utiity commands which may be useful for administrative and developer tasks. Given below is a brief overview of all the scripts including the ones discussed above.
 
@@ -216,7 +216,7 @@ The script bundle comes with few other utiity commands which may be useful for a
 - deleteapi-py – deletes an API when ID specified; Deletes all APIs when no API ID is specified. Useful for cleanup of environment. Use with caution.
 - deleteapplication.py – similar to deleteapi.py above. Useful for cleanup tasks. Use with caution
 
-##<a name="repl-interface"></a> REPL interface
+## <a name="repl-interface"></a> REPL interface
 
 The scripts also provide an interactive REPL interface for some of the above operations. The REPL shell can be started by invoking the repl.py and optionally passing the config file as below.
 
@@ -283,11 +283,11 @@ Here is a sample REPL session extract for reference
 
  
 
-###<a name="a-note-about-grants"></a> A note about grants
+### <a name="a-note-about-grants"></a> A note about grants
 
 Note that the output of most of the above list*/export* commands depends on the grants available for the user provided in the config json! For instance, if the user has no grants on any APIs, then the exportallapis.py will return no apis although there may be apis configured and visible to other users. 
 
-###<a name="logs"></a> Logs
+### <a name="logs"></a> Logs
 
 All script files and the REPL sessions write to log files within the apip-rest-python/logs directory. The log levels are set to default within the script .py files and the repl.py as shown below.
 
