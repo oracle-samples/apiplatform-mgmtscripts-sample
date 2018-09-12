@@ -95,13 +95,13 @@ The metadata in json format will be persisted within the destination directory s
 > `    python exportallapis.py --help`
 > `    exportallapis.py [-h] [-cf CONFIGFILE] [--destdir DESTDIR]`
 >
-> `    This program exports all APIs and its associated artifacts from APICS and` `persist them on the file system`
-> `    optional arguments:`
-> `      -h, --help       show this help message and exit`
-> `      -cf CONFIGFILE, --configfile CONFIGFILE    config file specifying server,`
->
-> `auth, proxy and other otails in json format;`
-> `--destdir DESTDIR     directory path on local file system where all the exported API artifacts will be saved to; defaults to current directory`
+> `    This program exports all APIs and its associated artifacts from APICS and` `persist them on the file system`   
+> `    optional arguments:`   
+> `      -h, --help       show this help message and exit`   
+> `      -cf CONFIGFILE, --configfile CONFIGFILE    config file specifying server,`   
+>   
+> `auth, proxy and other otails in json format;`   
+> `--destdir DESTDIR     directory path on local file system where all the exported API artifacts will be saved to; defaults to current directory`   
 
 ### 
 
@@ -114,14 +114,14 @@ The metadata in json format will be persisted within the destination directory s
 - Application registrations associated with every Application being exported
 
 > `usage:`
-> `exportallapplications.py [-h] [-cf CONFIGFILE] [--destdir DESTDIR]`
-> `This program exports all Applications from APICS and persist them on the file system`
->
-> `optional arguments:`
-> `  -h, --help       show this help message and exit`
-> `  -cf CONFIGFILE, --configfile CONFIGFILE    config file specifying server, auth, proxy and other`
-> `                        details in json format;`
-> `  --destdir DESTDIR     directory path on local file system where all the exported Apps and artifacts will be saved to; defaults to current directory`
+> `exportallapplications.py [-h] [-cf CONFIGFILE] [--destdir DESTDIR]`   
+> `This program exports all Applications from APICS and persist them on the file system`   
+>   
+> `optional arguments:`   
+> `  -h, --help       show this help message and exit`   
+> `  -cf CONFIGFILE, --configfile CONFIGFILE    config file specifying server, auth, proxy and other`   
+> `                        details in json format;`   
+> `  --destdir DESTDIR     directory path on local file system where all the exported Apps and artifacts will be saved to; defaults to current directory`   
 
  
 
@@ -135,12 +135,12 @@ The metadata in json format will be persisted within the destination directory s
 - Plan Entitlements 
 - Plan Subscriptions
 
-> `usage: exportallplans.py [-h] [-cf CONFIGFILE] [--destdir DESTDIR]This program exports all plans' metadata from APICS and persist them on the file system`
->
-> `optional arguments:`
-> `  -h, --help        show this help message and exit`
-> `  -cf CONFIGFILE, --configfile CONFIGFILE    config file specifying server, auth, proxy and other details in json format;`
-> `  --destdir DESTDIR     directory path on local file system where all the exported gateway details will be saved to; defaults to current directory`
+> `usage: exportallplans.py [-h] [-cf CONFIGFILE] [--destdir DESTDIR]This program exports all plans' metadata from APICS and persist them on the file system`     
+>   
+> `optional arguments:`   
+> `  -h, --help        show this help message and exit`   
+> `  -cf CONFIGFILE, --configfile CONFIGFILE    config file specifying server, auth, proxy and other details in json format;`   
+> `  --destdir DESTDIR     directory path on local file system where all the exported gateway details will be saved to; defaults to current directory`   
 
  
 
@@ -150,15 +150,15 @@ This script scans through all the API metadata jsons in a specified directory an
 
 Note that API grants and contracts are not used when importing. The new APIs will be created on target server with default grants and no contracts.
 
-> `Usage`
-> `importapis_fromdir.py [-h] [-cf CONFIGFILE] --dirpath DIRPATH`
->
-> `Import APIs into APICS by reading all json files in specified dirpath;`
->
-> `optional arguments:`
-> `  -h, --help       show this help message and exit`
-> `  -cf CONFIGFILE, --configfile CONFIGFILE config file specifying server, auth, proxy and other details in json format;`   
-> `  --dirpath DIRPATH     directory path; All json files from this directory will be imported`   
+> `Usage`   
+> `importapis_fromdir.py [-h] [-cf CONFIGFILE] --dirpath DIRPATH`   
+>   
+> `Import APIs into APICS by reading all json files in specified dirpath;`   
+>   
+> `optional arguments:`   
+> `  -h, --help       show this help message and exit`   
+> `  -cf CONFIGFILE, --configfile CONFIGFILE config file specifying server, auth, proxy and other details in json format;`      
+> `  --dirpath DIRPATH     directory path; All json files from this directory will be imported`    
 
 If any of the APIs have references to gateways or credentials in their policies, then such policies will be in draft mode after import. These should be completed prior to publishing these APIs on the target APIPCS server.
 
@@ -169,8 +169,8 @@ If any of the APIs have references to gateways or credentials in their policies,
 This script scans through all the Application metadata json files in a specified directory and creates them on the target API Platform server. Note that Application registrations will not be used when importing. The new Applications will be created on target server with no registrations.
 
 > `Usage: importapplications_fromdir.py [-h] [-cf CONFIGFILE] --dirpath DIRPATHImport Applications into APICS by reading all json files in specified dirpath;`   
->   
-> `optional arguments:   
+>      
+> `optional arguments:`   
 > `-h, –help            show this help message and exit`   
 > `-cf CONFIGFILE, –configfile CONFIGFILE config file specifying server, auth, proxy and other details in json format;`   
 > `–dirpath DIRPATH     directory path; All json files from this directory will be imported`   
@@ -188,13 +188,13 @@ Note that Plan grants are not used when importing. The new Plans will be created
 
 > `Usage`   
 > `importplans_fromdir.py [-h] [-cf CONFIGFILE] --dirpath DIRPATH`   
->   
+>     
 > `Import Plans into APICS by reading all json files in specified dirpath;`   
->   
+>     
 > `optional arguments:`   
 > `  -h, --help       show this help message and exit`   
-> `  -cf CONFIGFILE, --configfile CONFIGFILE config file specifying server, auth, proxy and other details in json format;`   
-> `  --dirpath DIRPATH     directory path; All json files from this directory will be imported`   
+> `  -cf CONFIGFILE, --configfile CONFIGFILE config file specifying server, auth, proxy and other details in json format;`    
+> `  --dirpath DIRPATH     directory path; All json files from this directory will be imported`    
 
 If any of the APIs have references to gateways or credentials in their policies, then such policies will be in draft mode after import. These should be completed prior to publishing these APIs on the target APIPCS server.
 
@@ -262,17 +262,23 @@ Here is a sample REPL session extract for reference
 > `Documented commands (type help ):`   
 > `========================================`   
 > `help`   
->
-> `APIPCS: >`   
+> `Undocumented commands:`   
+> `======================`   
+> `exit           exportallplans      importplans_fromdir  listgateways`   
+> `exportallapis  importapis_fromdir  listapis             listplans`   
+> `exportallapps  importapps_fromdir  listapps`   
 > `APIPCS: >`   
 > `APIPCS: >`   
 > `APIPCS: > listapis`   
-> `Reading Config from - apipcs_exportfrom.json`   
-> `['331', 'PublicAPI', 'ALPHA', 'weblogic', '2018-04-19T09:53:48+0000']`   
-> `['333', 'APIWithAPlan', 'ALPHA', 'weblogic', '2018-04-19T09:53:50+0000']`   
-> `['334', 'UserAPI', 'ALPHA', 'weblogic', '2018-04-19T09:53:52+0000']`   
+> `Reading Config from - apipcs_config.json`   
+> `Password for APIPCS user- weblogic:`   
+> `==============listapis===============`   
+> `['ID', 'Name', 'State', 'Created By', 'Created At']`   
+> `['104', 'AreaList', 'ALPHA', 'weblogic', '2018-08-17T10:23:05+0000']`   
+> `['105', 'AreaListPositive', 'ALPHA', 'weblogic', '2018-08-17T13:01:30+0000']`   
+> `['103', '1825API', 'ALPHA', 'weblogic', '2018-07-22T07:01:56+0000']`   
 > `***Found 3 APIs defined on the apipcs server`   
-
+> `==============listapis===============`   
  
 
 ### <a name="a-note-about-grants"></a> A note about grants
