@@ -1,0 +1,8 @@
+{
+	"server": "http://host:7201/apiplatform" ,
+	"auth": ["weblogic"],
+	"proxy": {
+		"http": "www-proxy.example.com:80", 
+		"https": "www-proxy.example.com:80"
+	}
+}

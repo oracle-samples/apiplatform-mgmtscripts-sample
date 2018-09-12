@@ -2,7 +2,6 @@
 /README.txt
 /apipcs_exportfrom.json
 /listapis_logger.py
-/**/*.json
 /**/*.pyc
 /**/*.log
 apip-apis-for-import/api136_overview_API903-overview.txt
