@@ -97,10 +97,18 @@ class apipserver(object):
             self._serverurl = config.get('server')
             #getpass#
             #self._auth = tuple(config.get('auth'))
-            user = config.get('auth')[0]
-            passwd = getpass.getpass(prompt='Password for APIPCS user- {}:'.format(user), stream=None)
-            self._auth = (user, passwd)
-            #getpass#
+            if config.get('auth'):
+                user = config.get('auth')[0]
+                passwd = getpass.getpass(prompt='Password for APIPCS user- {}:'.format(user), stream=None)
+                self._auth = (user, passwd)
+                #getpass#
+            elif 'oauth' in config.keys():
+                #accesstoken = config.get('accesstoken')[0]
+                accesstoken = getpass.getpass(prompt='oauth access token for accessing APIPCS :', stream=None)
+                self._auth = TokenAuth(accesstoken)
+            else:
+                raise TypeError("Supply either basic-auth with username or oauth empty element in config file. \n Example : {}  !".
+                                format(' "auth": ["weblogic"] or "accesstoken": [] '))
             self._proxies = config.get('proxy')
             self._basedirname = config.get('basedir')
             return True
@@ -690,9 +698,28 @@ class apipserver(object):
             self.saveprettyreponsetofile(resp.text, os.path.join(str(self._sessiondir),'{}-get-ERROR-details-{}.err'.format(stufftype, planid)))
             logging.info("Unable to get {} details for {}. Check REST API response above".format(stufftype, id))        
 
+class TokenAuth(requests.auth.AuthBase):
+    
+    def __init__(self, accesscode):
+        self.accesscode = accesscode
+        
+        
+    def __call__(self, r):
+        r.headers['Authorization'] = 'Bearer '+self.accesscode
+        #print_request(r)
+        return r
 #=====================
 #Utility methods
 #=====================      
+def print_request(req):
+    
+    print('SHREE:: HTTP/1.1 {method} {url}\n{headers}\n\n{body}'.format(
+        method=req.method,
+        url=req.url,
+        headers='\n'.join('{}: {}'.format(k, v) for k, v in req.headers.items()),
+        body="NONE",
+    ))
+
 def loopidsfromresponse(dictres): #generator func
     count=0
     for k,v in dictres.items():

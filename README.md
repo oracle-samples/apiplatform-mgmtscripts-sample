@@ -35,7 +35,10 @@ The scripts require familiarity with API Platform Cloud Service. Knowledge of Py
 
 The scripts require Python version 3.6+ and ‘requests’ module installed.
 
-The API Platform Cloud Service (APIPCS) REST API documentation is available here [http://docs.oracle.com/en/cloud/paas/api-platform-cloud](http://docs.oracle.com/en/cloud/paas/api-platform-cloud/index.html)
+The API Platform Cloud Service (APIPCS) REST API documentation is available here.   
+Autonomous APIPCS - http://docs.oracle.com/en/cloud/paas/api-platform-cloud   
+User Managed APIPCS- https://docs.oracle.com/en/cloud/paas/api-platform-cloud-um
+
 
 The python scripts zip pack can be downloaded FROM **here.**
 
@@ -54,15 +57,36 @@ For example, python listapis.py –help
 > `-h, --help            show this help message and exit`
 > `-cf CONFIGFILE, --configfile CONFIGFILE config file specifying server, auth, proxy and other details in json format;`
 
-All scripts accept a common config file as argument which contains the details required to connect to and authenticate against the API Platform Cloud service. The file is in json format and defaults to apipcs_config.json when not provided. Here is an example of how the file would appear
+All scripts accept a common config file as argument which contains the details required to connect to and authenticate against the API Platform Cloud service. The file is in json format and defaults to apipcs_config.json when not provided.   
 
-> `apipcs_config.json:`
-> `{`
-> `    "server": "http://host:7201/apiplatform" ,`
-> `    "auth": ["weblogic"],`
-> `}`
+Note that API Platform Cloud Service - User Managed (APIPCS UM) uses basic auth and requires the username, password credentials of an APIPCS user for authentication. Here is an example of how the file would appear for APIPCS UM.
 
-Additionally, proxy infomation can also be provided when a http/https proxy server is required to connect to the API platform Cloud Service
+**APICS User Managed - sample json config file using basic auth** :
+> `apipcs_config.json:`   
+> `{   `   
+> `    "server": "http://host:7201/apiplatform" ,   `   
+> `    "auth": ["weblogic"],`   
+> `}`   
+
+Provide only the username for authentication. The scripts will prompt for a password during execution !
+>`Password for APIPCS user- weblogic:`
+
+Oracle Autonomous API Platform Cloud Service (APIPCS) uses Oauth and requires an access token issued by Oracle Identity Cloud Service for APIPCS user, in order to be authenticated.   
+Refer here for 
+<a name="https://docs.oracle.com/en/cloud/paas/api-platform-cloud/apfrm/Authentication.html">**generating access tokens for APIPCS**</a>   
+Here is a sample json config file to be used for Autonomous APIPCS. Specify a marker element for 'oauth' with an empty value. The script will prompt for access token during execution !
+
+**Autonomous APIPCS - sample json config file using oauth**:
+> `apipcs_config.json:`   
+>`{`   
+>`	"server": "http://localhost:7201/apiplatform" ,`   
+>`	"oauth" : []`   
+>`}`   
+
+Note - the script will prompt for the oauth access token during execution!
+> `oauth access token for accessing APIPCS :`   
+
+Additionally, proxy infomation can also be provided when a http/https proxy server is required to connect to the API platform Cloud Service. Shown below are sample proxy configurations.
 
 > `{`
 > `    "server": "https://host/apiplatform" ,`  
@@ -73,9 +97,6 @@ Additionally, proxy infomation can also be provided when a http/https proxy serv
 > `    }`
 > `}`
 
-Provide only the username for authentication. The scripts will prompt for a password during execution !
-
->`Password for APIPCS user- weblogic:`
 
 ## <a name="common-administrative-operations"></a> Common Administrative Operations:
 
@@ -220,18 +241,27 @@ The script bundle comes with few other utiity commands which may be useful for a
 
 The scripts also provide an interactive REPL interface for some of the above operations. The REPL shell can be started by invoking the repl.py and optionally passing the config file as below.
 
-python repl.py [-cf CONFIGFILE]
+> `python repl.py [-cf CONFIGFILE]`   
 
 The REPL also takes the same common config file as argument as before which contains the details required to connect to and authenticate against the API Platform Cloud service. It defaults to apipcs_config.json when not provided.
 
+**Autonomous APIPCS - sample json config file using oauth**:
+> **`apipcs_config.json:`**   
 > `{`
 > `    "server": "https://host:port/apiplatform" ,`   
-> `    "auth": ["weblogic"],`   
+> `    "oauth": [],`   
 > `    "proxy": {`   
 > `        "http": "proxy.xxx.yyy.com:80",`   
 > `        "https": "proxy.xxx.yyy.com:80"`   
 > `    }`
 > `}`
+
+**APICS User Managed - sample json config file using basic auth** :
+> **`apipcs_config.json:`**   
+> `{   `   
+> `    "server": "http://host:port/apiplatform" ,   `   
+> `    "auth": ["weblogic"],`   
+> `}`   
 
 Starting the REPL   
 

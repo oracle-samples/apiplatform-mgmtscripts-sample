@@ -1,0 +1,4 @@
+{
+	"server": "http://localhost:7201/apiplatform" ,
+	"oauth" : []
+}
