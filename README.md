@@ -40,7 +40,7 @@ Autonomous APIPCS - http://docs.oracle.com/en/cloud/paas/api-platform-cloud
 User Managed APIPCS- https://docs.oracle.com/en/cloud/paas/api-platform-cloud-um
 
 
-The python scripts zip pack can be downloaded FROM **here.**
+The python scripts zip pack can be downloaded FROM **[here](https://github.com/oracle/apiplatform-mgmtscripts-sample/archive/refs/heads/master.zip).**
 
 Extract the zip archive. All python scripts are found within the apip-rest-python directory.
 
