@@ -3,7 +3,7 @@
    * [apiplatform-mgmtscripts-sample](#apiplatform-mgmtscripts-sample)
       * [Introduction](#introduction)
          * [Why](#why)
-      * [Prerequisites](#prerequisites)
+      * [Getting Started](#getting-srarted)
       * [Common Administrative Operations:](#common-administrative-operations)
          * [Exporting all APIs from an API Platform (exportallapis.py)](#exporting-all-apis-from-an-api-platform-exportallapispy)
          * [Exporting all Applications from an API Platform (exportallapplications.py)](#exporting-all-applications-from-an-api-platform-exportallapplicationspy)
@@ -31,7 +31,7 @@ These scripts are written keeping in mind a few real life use cases, such as –
 
 The scripts require familiarity with API Platform Cloud Service. Knowledge of Python programming language is not essential to execute the scripts and the interactive REPL, but will come in handy to customize or extend the functionality of the scripts to suite any specific needs.
 
-## <a name="prerequisites"></a> Prerequisites
+## <a name="getting started"></a> Getting Started
 
 The scripts require Python version 3.6+ and ‘requests’ module installed.
 
